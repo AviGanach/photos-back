@@ -1,0 +1,17 @@
+
+const axios = require('axios')
+require("dotenv").config();
+
+const apiKey = process.env.REACT_APP_API_KEY;
+
+const getPhotosDL = async (category) => {
+  try {
+    const url = `https://pixabay.com/api/?key=${apiKey}&q=${category}`;
+    const response = await axios.get(url);
+    return response; ;
+  } catch (err) {
+    return res.json(err);
+  }
+};
+
+module.exports = { getPhotosDL };
